@@ -1,14 +1,16 @@
 <div class="card news-item-card" *ngIf="item">
 
-  <a class="cart-image" href="#">
+  <a class="cart-image" routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}">
     <img [src]="item.details ? item.details.coverImageUrl : ''" alt="Avatar" width="300" height="200">
   </a>
 
   <div class="card-content-container">
-    <a href="#"><span class="card-title">{{item.id}} - {{item.title}}</span></a>
-    <p *ngIf="item.details" class="short-content">
-      <span>({{item.subtitle}})</span> -
-      <span>{{item.details.description}}</span>
+    <a><span class="card-title">{{item.id}} - {{item.title}}</span></a>
+    <p class="short-content">
+      <ng-container *ngIf="item.details">
+        <span>({{item.subtitle}})</span> -
+        <span>{{item.details.description}}</span>
+      </ng-container>
     </p>
     <p class="additional-info">{{item.description}}</p>
   </div>

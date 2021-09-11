@@ -1,0 +1,8 @@
+<div class="content">
+    <div *ngIf="newsDetail">
+        <h1>{{newsDetail.title}}</h1>
+        <p>{{newsDetail.description}}</p>
+        <img [src]="newsDetail.coverImageUrl" alt="Avatar" width="100%" height="100%">
+        <p [innerHTML]="newsDetail.content"></p>
+    </div>
+</div>

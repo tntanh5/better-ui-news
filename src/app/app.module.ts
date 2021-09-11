@@ -8,18 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewsItemComponent } from './components/news-item/news-item.component';
 import { RouterModule } from '@angular/router';
 import { NewsListComponent } from './components/news-list/news-list.component';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsItemComponent,
-    NewsListComponent
+    NewsListComponent,
+    NewsDetailComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'news-list', component: NewsListComponent},
-      {path: '', redirectTo: '/news-list', pathMatch: 'full'}
+      { path: 'news-list', component: NewsListComponent },
+      { path: 'news-detail', component: NewsDetailComponent },
+      { path: '', redirectTo: '/news-list', pathMatch: 'full' }
     ]),
     AppRoutingModule,
     GraphQLModule,
