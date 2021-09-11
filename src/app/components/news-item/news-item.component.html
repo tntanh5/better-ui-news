@@ -1,1 +1,15 @@
-<p>{{item.title}}</p>
+<div class="card news-item-card" *ngIf="item">
+
+  <a class="cart-image" href="#">
+    <img [src]="item.details ? item.details.coverImageUrl : ''" alt="Avatar" width="300" height="200">
+  </a>
+
+  <div class="card-content-container">
+    <a href="#"><span class="card-title">{{item.id}} - {{item.title}}</span></a>
+    <p *ngIf="item.details" class="short-content">
+      <span>({{item.subtitle}})</span> -
+      <span>{{item.details.description}}</span>
+    </p>
+    <p class="additional-info">{{item.description}}</p>
+  </div>
+</div>
