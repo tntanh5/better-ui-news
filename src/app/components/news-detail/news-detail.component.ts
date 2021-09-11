@@ -10,6 +10,7 @@ import { NewsItem } from '../news-item/news-item.model';
   styleUrls: ['./news-detail.component.scss']
 })
 export class NewsDetailComponent implements OnInit {
+  loading: boolean = false;
   newsDetail!: NewsItem;
   constructor(private router: Router, private newsServiceService: NewsServiceService) {
     router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
@@ -28,15 +29,22 @@ export class NewsDetailComponent implements OnInit {
         sessionStorage.setItem('url', this.newsDetail.url);
       }
     }
-   }
+  }
 
   ngOnInit(): void {
-    if(!this.newsDetail) {
+    if (!this.newsDetail) {
       const url = sessionStorage.getItem('url');
       if (url) {
-        this.newsServiceService.getOneArticle(url).valueChanges.subscribe(({data}) => {
-          this.newsDetail = data.article;
-        })
+        this.loading = true;
+        this.newsServiceService.getOneArticle(url).valueChanges
+          .subscribe(
+            ({ data }) => {
+              this.newsDetail = data.article;
+              this.loading = false;
+            },
+            error => {
+              this.loading = false;
+            });
       } else {
         // do something
       }

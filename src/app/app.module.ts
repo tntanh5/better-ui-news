@@ -9,6 +9,7 @@ import { NewsItemComponent } from './components/news-item/news-item.component';
 import { RouterModule } from '@angular/router';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewsDetailComponent } from './components/news-detail/news-detail.compon
     ]),
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
