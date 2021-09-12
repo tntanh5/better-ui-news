@@ -2,7 +2,7 @@
     <div *ngIf="newsDetail">
         <h1>{{newsDetail.title}}</h1>
         <p>{{newsDetail.description}}</p>
-        <img [src]="newsDetail.coverImageUrl" alt="Avatar" width="100%" height="auto">
+        <img [src]="newsDetail.coverImageUrl" alt="Avatar" width="100%" height="auto" onerror="this.src='/assets/images/image-not-found.png'">
         <p [innerHTML]="newsDetail.content"></p>
     </div>
 </div>

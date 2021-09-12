@@ -15,7 +15,7 @@ export class NewsServiceService {
       variables: {
         pageNumber
       },
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network'
     });
   }
 
