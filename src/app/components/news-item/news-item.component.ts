@@ -13,5 +13,5 @@ export class NewsItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

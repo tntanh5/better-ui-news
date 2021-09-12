@@ -10,20 +10,24 @@ import { RouterModule } from '@angular/router';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 import { NgxLoadingModule } from 'ngx-loading';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsItemComponent,
     NewsListComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: 'news-list', component: NewsListComponent },
       { path: 'news-detail', component: NewsDetailComponent },
-      { path: '', redirectTo: '/news-list', pathMatch: 'full' }
+      { path: '', redirectTo: '/news-list', pathMatch: 'full' },
+      { path: '404', component: PageNotFoundComponent },
+      { path: '**', redirectTo: '404' }
     ]),
     AppRoutingModule,
     GraphQLModule,
