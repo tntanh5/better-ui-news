@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.toolbar span')?.textContent).toContain('NEWS');
+    expect(compiled.querySelector('.toolbar span')?.textContent).toEqual('NEWS');
   });
 
   // Not found testing
