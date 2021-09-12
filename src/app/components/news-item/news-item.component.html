@@ -1,11 +1,14 @@
 <div class="card news-item-card" *ngIf="item">
 
-  <a class="cart-image" routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}" [style.pointer-events]="(!item.url ||!item.url.startsWith('http')) ? 'none' : 'auto'">
-    <img [src]="item.details ? item.details.coverImageUrl : ''" alt="Avatar" width="300" height="200" onerror="this.src='/assets/images/image-not-found.png'">
+  <a class="cart-image" routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}"
+    [style.pointer-events]="(!item.url ||!item.url.startsWith('http')) ? 'none' : 'auto'">
+    <img [src]="item.details ? item.details.coverImageUrl : ''" alt="Avatar" width="300" height="200"
+      onerror="this.src='/assets/images/image-not-found.png'">
   </a>
 
   <div class="card-content-container">
-    <a routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}" [style.pointerEvents]="(!item.url ||!item.url.startsWith('http')) ? 'none' : 'auto'">
+    <a routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}"
+      [style.pointerEvents]="(!item.url ||!item.url.startsWith('http')) ? 'none' : 'auto'">
       <span class="card-title" innerHTML="{{item.id}} - {{item.title}}"></span>
     </a>
     <p class="short-content">
@@ -14,6 +17,11 @@
         <span>{{item.details.description}}</span>
       </ng-container>
     </p>
-    <p class="additional-info">{{item.description}}</p>
+    <div class="additional-info-container">
+      <p class="additional-info">{{item.description}}</p>
+      <button mat-icon-button color="primary" (click)="openDialog()" [disabled]="item.details === undefined">
+        <mat-icon>open_in_full</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

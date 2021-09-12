@@ -1,0 +1,11 @@
+<ng-container *ngIf="data && data.details">
+    <h1 mat-dialog-title>{{data.details ? data.details.title : data.title}}</h1>
+    <div mat-dialog-content>
+        <div>
+            <p>{{data.details.description}}</p>
+            <img [src]="data.details.coverImageUrl" alt="Avatar" width="100%" height="auto"
+                onerror="this.src='/assets/images/image-not-found.png'">
+            <p [innerHTML]="data.details.content"></p>
+        </div>
+    </div>
+</ng-container>

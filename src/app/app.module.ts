@@ -11,6 +11,11 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     NewsItemComponent,
     NewsListComponent,
     NewsDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DialogOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,11 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
