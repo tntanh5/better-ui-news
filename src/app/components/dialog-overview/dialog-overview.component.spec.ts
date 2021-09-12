@@ -17,7 +17,7 @@ describe('DialogOverviewComponent', () => {
           provide: MatDialogRef, useValue: {}
         },
         MatDialog
-      ],
+      ]
     })
       .compileComponents();
   });
