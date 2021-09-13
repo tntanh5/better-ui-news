@@ -7,9 +7,9 @@
   </a>
 
   <div class="card-content-container">
-    <a routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}"
+    <a routerLink="/news-detail" [state]="{newsDetail: item.details, url: item.url}" 
       [style.pointerEvents]="(!item.url ||!item.url.startsWith('http')) ? 'none' : 'auto'">
-      <span class="card-title" innerHTML="{{item.id}} - {{item.title}}"></span>
+      <span class="card-title card-{{item.id}}" innerHTML="{{item.title}}"></span>
     </a>
     <p class="short-content">
       <ng-container *ngIf="item.details">

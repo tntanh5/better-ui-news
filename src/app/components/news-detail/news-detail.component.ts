@@ -13,12 +13,7 @@ export class NewsDetailComponent implements OnInit {
   loading: boolean = false;
   newsDetail!: NewsItem;
   constructor(private router: Router, private newsServiceService: NewsServiceService) {
-    router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
-      const navigation = router.getCurrentNavigation();
-      console.log('try with refresh', navigation?.extras.state);
-    });
     const navigation = this.router.getCurrentNavigation();
-    console.log("abc", navigation?.extras.state);
     if (!navigation || !navigation.extras || !navigation.extras.state) {
       return;
     } else {
